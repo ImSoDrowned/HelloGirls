@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 #__VERSION__ = "1.1"
 
 config = json.loads(open("./config.json", "r", encoding="utf-8").read())
-proxies = open("./proxies.txt", "+r", encoding="utf-8").read().splitlines()
+
 
 class color:
     GREEN = "\033[92m"
@@ -31,14 +31,13 @@ def user_handler():
     return tokens
 
 
-def send_dm(username, password, proxy, userdm, messageText, count, i):
+def send_dm(username, password, userdm, messageText, count, i):
     try:
         username = username
         password = password
 
         cl = Client()
-        if config["script_settings"]["use_proxy"]:
-            cl.set_proxy(proxy["https"])
+        
         print('1')
         cl.login(username, password)
         print(2)
@@ -61,32 +60,13 @@ def start(thread,msg):
                     
         for id, user_name in enumerate(user_handler()):
 
-            pp = 1
-            while pp is None:
-                try:
-                    prox = {"http": f"http://{random.choice(proxies)}", "https": f"{config['script_settings']['proxy_type']}://{random.choice(proxies)}"}
-                    a = requests.get("http://ip-api.com/json/", proxies=prox, timeout=7, verify=False)
-                    pp = prox
-                    print(f"{color.GREEN}[{id+1}] Proxy is working. IP: {a.json()['query']} | COUNTRY: {a.json()['country']} {color.RESET_ALL}")
-                except:
-                    print(f"{color.RED}[{id+1}] Bad proxy. {prox['https']}")
-                    pass
-
-            if config["script_settings"]["use_proxy"]:
-                                
-                if threading.active_count() <= thread:
-                    mT = threading.Thread(target=send_dm, args=(config["instagram_settings"]["username"],config["instagram_settings"]["password"], pp, user_name,msg,config["script_settings"]["message_amount"],id+1))
-                    #send_dm(config["instagram_settings"]["username"],config["instagram_settings"]["password"], random.choice(working_proxies), user_name, config["instagram_settings"]["text_message"])
-                    mT.daemon = True
-                    mT.start()
-                    tx.append(mT)
-            else:
-                if threading.active_count() <= thread:
-                    mT = threading.Thread(target=send_dm, args=(config["instagram_settings"]["username"],config["instagram_settings"]["password"], None, user_name, config["instagram_settings"]["text_message"],config["script_settings"]["message_amount"],id+1))
-                    #send_dm(config["instagram_settings"]["username"],config["instagram_settings"]["password"], random.choice(working_proxies), user_name, config["instagram_settings"]["text_message"])
-                    mT.daemon = True
-                    mT.start()
-                    tx.append(mT)
+            
+            if threading.active_count() <= thread:
+                mT = threading.Thread(target=send_dm, args=(config["instagram_settings"]["username"],config["instagram_settings"]["password"], user_name, msg,config["script_settings"]["message_amount"],id+1))
+                #send_dm(config["instagram_settings"]["username"],config["instagram_settings"]["password"], random.choice(working_proxies), user_name, config["instagram_settings"]["text_message"])
+                mT.daemon = True
+                mT.start()
+                tx.append(mT)
         
         
         for t in tx:
