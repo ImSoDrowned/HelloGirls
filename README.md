@@ -5,7 +5,7 @@ Do you have multiple girlfriends?
 
 Do you find it difficult to send a good morning and a good night to her every day?
 
-No need to worry but this anymore because **HelloGirls** is here to save your relationship(s)!
+No need to worry but this anymore because **HelloGirls** is here to protect your relationship(s)!
 
 **HelloGirls** allows you to 
 - Send Instagram dm's to as many accounts as you prefer 
