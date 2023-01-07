@@ -1,5 +1,5 @@
 # HelloGirls
-**Developed by ImSoDrowned**
+**Developed with 💙 by ImSoDrowned**
 # Introduction
 Do you have multiple girlfriends?
 
