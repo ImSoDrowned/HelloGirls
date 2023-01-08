@@ -1,15 +1,6 @@
 {
     "instagram_settings": {
-        "username": "xxxxxxxxxxx",
-        "password": "xxxxxxxxxxx",
-        "text_message": "Hello alwin"
-    },
-
-    "script_settings": {
-        "license": "a",
-        "use_proxy": false,
-        "proxy_type": "https",
-        "threading": 10,
-        "message_amount": 1
+        "username": "xxxxxxxxxxxx",
+        "password": "xxxxxxxxxxxx"
     }
 }
