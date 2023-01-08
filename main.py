@@ -86,10 +86,11 @@ if __name__ == "__main__":
     
     os.system("cls" if os.name == "nt" else "clear")
     check = [True]
-    if check[0]:   
+    if check[0]: 
+        '''  
         print(f"{color.GREEN}[+] License correct program starting... {color.RESET_ALL}")
         time.sleep(2)
-        os.system("cls" if os.name == "nt" else "clear")
+        os.system("cls" if os.name == "nt" else "clear")'''
         print(fr"""{color.GREEN}
 $$\   $$\           $$\ $$\                  $$$$$$\  $$\           $$\           
 $$ |  $$ |          $$ |$$ |                $$  __$$\ \__|          $$ |          
