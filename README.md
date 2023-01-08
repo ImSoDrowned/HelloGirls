@@ -1,4 +1,5 @@
 # HelloGirls
+A program to send good morning and goodnight to multiple Instagram accounts
 **Developed with 💙 by ImSoDrowned**
 # Introduction
 Do you have multiple girlfriends?
@@ -19,7 +20,7 @@ No need to worry but this anymore because **HelloGirls** is here to protect your
     "instagram_settings": {
         "username": "enter-your-username",
         "password": "enter-your-password",
-        "text_message": "Hello alwin"
+        "text_message": "Hello Alwin"
     },
 
     "script_settings": {
