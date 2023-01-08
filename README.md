@@ -3,6 +3,8 @@ A program to send good morning and good night dm's to multiple Instagram account
 
 > **Status:** Testing Phase (ready for use)
 
+> Forgive me for any errors. I Developed this on a tablet, with no debugging or code prediction
+
 **Developed with 💙 by ImSoDrowned**
 
 Idea of **Abishek RS** 🧠
