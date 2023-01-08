@@ -7,7 +7,7 @@ A program to send good morning and good night dm's to multiple Instagram account
 
 **Developed with 💙 by ImSoDrowned**
 
-Idea of **Abishek RS** 🧠
+Idea by **Abishek RS** 🧠
 
 Dedicated to **Sai Krishana**
 # Introduction
