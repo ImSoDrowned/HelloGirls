@@ -1,7 +1,7 @@
 # HelloGirls
 A program to send good morning and good night dm's to multiple Instagram accounts
 
-> **Status:** In Development
+> **Status:** In Development (not ready for use)
 
 **Developed with 💙 by ImSoDrowned**
 # Introduction
