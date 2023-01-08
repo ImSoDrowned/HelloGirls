@@ -3,8 +3,8 @@ import requests
 import time
 import instagrapi
 from instagrapi import Client
-#from bs4 import BeautifulSoup
-from datetime import datetime
+from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 
 config = json.loads(open("./config.json", "r", encoding="utf-8").read())
 
@@ -65,7 +65,7 @@ def start_msg(msg):
 		              break
 		              i+=1
 		print(f"{color.BLUE}{len(lines)}{color.RESET_ALL}","Usernames Detected",f"{color.BLUE}[", ", ".join(prt), f"]{color.RESET_ALL}")
-		input("....")
+		print("....")
 		send_dm(
             config["instagram_settings"]["username"],
             config["instagram_settings"]["password"],
@@ -107,21 +107,24 @@ $$ |  $$ |\$$$$$$$\ $$ |$$ |\$$$$$$  |      \$$$$$$  |$$ |$$ |      $$ |$$$$$$$ 
     	m_date = datetime(now.year,now.month,now.day,config["message_settings"]["morning"]["hour"],config["message_settings"]["morning"]["minute"],0)
     	n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0)
     	mid= datetime(now.year,now.month,now.day,23,45,0)
-    	print(now-m_date)
-    	if  now>n_date and not n_done:
-    	 	start(2)
-    	 	n_done=True
-    	 	#print(2)
+    	
+    	#print((now-m_date).total_seconds()/3600)
+    	if  (now>n_date and not n_done) and (((now-n_date).total_seconds()/3600) < 3):
+    	 		start(2)
+    	 		n_done=True
+    	 		#print(2)
     	 	
-    	elif now>m_date and not m_done:
-    	 	start(1)
-    	 	#print(1)
-    	 	m_done=True
+    	elif (now>m_date and not m_done) and (((now-m_date).total_seconds()/3600) < 3):
+    	 		start(1)
+    	 		#print(1)
+    	 		m_done=True
     	elif now>mid and (m_done or n_done):
     	    now=datetime.now()
     	    m_date = datetime(now.year,now.month,now.day,config["message_settings"]["morning"]["hour"],config["message_settings"]["morning"]["minute"],0) + timedelta(days=1)
     	    n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0) + timedelta(days=1)
     	    mid= datetime(now.year,now.month,now.day,23,45,0) + timedelta(days=1)
+    	    #print(9,mid)
     	else: 
-    	     print(0)
+    	     #print(0)
+    	     pass
     	time.sleep(1)
