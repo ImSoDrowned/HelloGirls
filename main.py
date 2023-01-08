@@ -4,6 +4,7 @@ import time
 import instagrapi
 from instagrapi import Client
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 config = json.loads(open("./config.json", "r", encoding="utf-8").read())
 
@@ -26,7 +27,7 @@ def user_handler():
     return tokens
 
 
-def send_dm(username, password, messageText):
+def send_dm(username, password, messageText, totalno):
     try:
         username = username
         password = password
@@ -34,7 +35,7 @@ def send_dm(username, password, messageText):
         cl = Client()
 
         cl.login(username, password)
-
+        print(f"Sending {color.BLUE}{messageText}{color.RESET_ALL} to {color.GREEN}{totalno}{color.RESET_ALL} Accounts")
         for i, userdm in enumerate(user_handler()):
             userid = cl.user_id_from_username(userdm)
             i += 1
@@ -69,12 +70,24 @@ def start_msg(msg):
             config["instagram_settings"]["username"],
             config["instagram_settings"]["password"],
             msg,
+            len(lines)
         )
+        
+def start(grt_no):
+	msgs = [config["message_settings"]["morning"]["message"], config["message_settings"]["night"]["message"]]
+	msg = msgs[grt_no - 1]
+	f= open("./count.txt",'r', encoding='utf-8')
+	count= int(f.read())
+	f= open("./count.txt",'w', encoding='utf-8')
+	f.write(str(count+1))
+	f.close()
+	start_msg(msg+' #'+str(count))
 
 if __name__ == "__main__":
-
+    
+    
     print(
-        rf"""{color.GREEN}
+        f"""{color.GREEN}
 $$\   $$\           $$\ $$\                  $$$$$$\  $$\           $$\           
 $$ |  $$ |          $$ |$$ |                $$  __$$\ \__|          $$ |          
 $$ |  $$ | $$$$$$\  $$ |$$ | $$$$$$\        $$ /  \__|$$\  $$$$$$\  $$ | $$$$$$$\ 
@@ -87,5 +100,28 @@ $$ |  $$ |\$$$$$$$\ $$ |$$ |\$$$$$$  |      \$$$$$$  |$$ |$$ |      $$ |$$$$$$$ 
     Press any key to start the script...
     {color.RESET_ALL}    """
     )
-    start_msg("Sup")
-    
+    n_done=m_done=False
+    while True:
+    	
+    	now=datetime.now()
+    	m_date = datetime(now.year,now.month,now.day,config["message_settings"]["morning"]["hour"],config["message_settings"]["morning"]["minute"],0)
+    	n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0)
+    	mid= datetime(now.year,now.month,now.day,23,45,0)
+    	print(now-m_date)
+    	if  now>n_date and not n_done:
+    	 	#start(1)
+    	 	n_done=True
+    	 	print(2)
+    	 	
+    	elif now>m_date and not m_done:
+    	 	#start(2)
+    	 	print(1)
+    	 	m_done=True
+    	elif now>mid and (m_done or n_done):
+    	    now=datetime.now()
+    	    m_date = datetime(now.year,now.month,now.day,config["message_settings"]["morning"]["hour"],config["message_settings"]["morning"]["minute"],0) + timedelta(days=1)
+    	    n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0) + timedelta(days=1)
+    	    mid= datetime(now.year,now.month,now.day,23,45,0) + timedelta(days=1)
+    	else: 
+    	     print(0)
+    	time.sleep(1)
