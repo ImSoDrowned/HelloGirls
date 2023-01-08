@@ -3,7 +3,8 @@ from tabnanny import check
 from instagrapi import Client
 from bs4 import BeautifulSoup
 
-
+class glob:
+	shutup=False
 
 #__PROGRAMID__ = "c2JedU7LcPNfkW8H9yPVAFjTuPxeJh9"
 #__VERSION__ = "1.1"
@@ -35,20 +36,26 @@ def send_dm(username, password, userdm, messageText, count, i):
     try:
         username = username
         password = password
-
+        
+        while glob.shutup:
+        	time.sleep(5)
+        glob.shutup=True
+        
         cl = Client()
         
-        print('1')
+        #print('1')
         cl.login(username, password)
-        print(2)
+        #print(2)
         userid = cl.user_id_from_username(userdm)
         print(userid)
         for x in range(0,count):
             a = cl.direct_send(messageText, [int(userid)])
             print(f"{color.GREEN}[{i}] {color.RESET_ALL}Message succesfully sent to {color.GREEN}@{userdm} {color.RESET_ALL}with {color.GREEN}@{username}{color.RESET_ALL}.")
+            glob.shutup=False
     except Exception as err:
         print(f"{color.RED}[{i}]{color.RESET_ALL} An error occured when sending message to {color.RED}@{userdm} {color.RESET_ALL}account. Passing. ERROR: {err}")
-        traceback.print_exc()
+        #traceback.print_exc()
+        glob.shutup=False
         pass
 
 
@@ -59,15 +66,13 @@ def start(thread,msg):
 
                     
         for id, user_name in enumerate(user_handler()):
-
-            
+                       
             if threading.active_count() <= thread:
                 mT = threading.Thread(target=send_dm, args=(config["instagram_settings"]["username"],config["instagram_settings"]["password"], user_name, msg,config["script_settings"]["message_amount"],id+1))
                 #send_dm(config["instagram_settings"]["username"],config["instagram_settings"]["password"], random.choice(working_proxies), user_name, config["instagram_settings"]["text_message"])
                 mT.daemon = True
                 mT.start()
-                tx.append(mT)
-        
+                tx.append(mT)      
         
         for t in tx:
             t.join(75)
