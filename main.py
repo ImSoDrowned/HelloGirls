@@ -3,8 +3,8 @@ import requests
 import time
 import instagrapi
 from instagrapi import Client
-from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
+#from bs4 import BeautifulSoup
 
 config = json.loads(open("./config.json", "r", encoding="utf-8").read())
 
