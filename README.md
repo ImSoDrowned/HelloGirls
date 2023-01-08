@@ -39,3 +39,15 @@ No need to worry about this anymore because **HelloGirls** is here to protect yo
 }
 
 ```
+
+## Inputing Recipient's Instagram IDs
+
+* Open ` usernames.txt `
+* Then add the Instagram IDs
+
+example
+```
+ganeshpaniker
+namanbig
+chorian2024
+```
