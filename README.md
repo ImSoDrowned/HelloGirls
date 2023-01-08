@@ -1,5 +1,6 @@
 # HelloGirls
-A program to send good morning and goodnight to multiple Instagram accounts
+A program to send good morning and good night dm's to multiple Instagram accounts
+
 **Developed with 💙 by ImSoDrowned**
 # Introduction
 Do you have multiple girlfriends?
