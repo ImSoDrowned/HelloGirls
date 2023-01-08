@@ -101,30 +101,37 @@ $$ |  $$ |\$$$$$$$\ $$ |$$ |\$$$$$$  |      \$$$$$$  |$$ |$$ |      $$ |$$$$$$$ 
     {color.RESET_ALL}    """
     )
     n_done=m_done=False
+    dot=1
     while True:
     	
     	now=datetime.now()
     	m_date = datetime(now.year,now.month,now.day,config["message_settings"]["morning"]["hour"],config["message_settings"]["morning"]["minute"],0)
     	n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0)
     	mid= datetime(now.year,now.month,now.day,23,45,0)
-    	
-    	#print((now-m_date).total_seconds()/3600)
-    	if  (now>n_date and not n_done) and (((now-n_date).total_seconds()/3600) < 3):
+
+    	if  dot==5 and not n_done:#(now>n_date and not n_done) and (((now-n_date).total_seconds()/3600) < 3):
+    	 		print()
     	 		start(2)
     	 		n_done=True
-    	 		#print(2)
+    	 		print('\n' + f"{color.GREEN}All Done!!{color.RESET_ALL}")
+    	 		print()
     	 	
     	elif (now>m_date and not m_done) and (((now-m_date).total_seconds()/3600) < 3):
+    	 		print()
     	 		start(1)
-    	 		#print(1)
     	 		m_done=True
+    	 		print()
+    	 		
     	elif now>mid and (m_done or n_done):
     	    now=datetime.now()
     	    m_date = datetime(now.year,now.month,now.day,config["message_settings"]["morning"]["hour"],config["message_settings"]["morning"]["minute"],0) + timedelta(days=1)
     	    n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0) + timedelta(days=1)
     	    mid= datetime(now.year,now.month,now.day,23,45,0) + timedelta(days=1)
-    	    #print(9,mid)
-    	else: 
-    	     #print(0)
+    	    
+    	else:
+    	     if dot>5:
+    	     	dot=1
+    	     print(f"{color.BLUE}Waiting for the right moment{'.'*dot}{' '*(5-dot)}{color.RESET_ALL}",end='\r')
+    	     dot+=1
     	     pass
     	time.sleep(1)
