@@ -1,9 +1,13 @@
 # HelloGirls
 A program to send good morning and good night dm's to multiple Instagram accounts
 
-> **Status:** Testing Phase
+> **Status:** Testing Phase (ready for use)
 
 **Developed with 💙 by ImSoDrowned**
+
+Idea of **Abishek RS** 🧠
+
+Dedicated to **Sai Krishana**
 # Introduction
 Do you have multiple girlfriends?
 
@@ -51,3 +55,4 @@ ganeshpaniker
 namanbig
 chorian2024
 ```
+**NEVER LEAVE EMPTY LINES BETWEEN OR AFTER THE USERNAMES**
