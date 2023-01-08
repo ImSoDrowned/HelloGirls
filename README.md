@@ -14,7 +14,7 @@ No need to worry about this anymore because **HelloGirls** is here to protect yo
 **HelloGirls** allows you to 
 - Send Instagram dm's to as many accounts as you prefer 
 - Schedule your messages to be sent at a given time 
-- Send greetings to up to 200 accounts
+- Send greetings to up to 100 accounts
     - > Although sending messages to this many accounts at once can get your account banned
 # Installation
 ` pip install -r requirements.txt `
