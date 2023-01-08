@@ -109,7 +109,7 @@ $$ |  $$ |\$$$$$$$\ $$ |$$ |\$$$$$$  |      \$$$$$$  |$$ |$$ |      $$ |$$$$$$$ 
     	n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0)
     	mid= datetime(now.year,now.month,now.day,23,45,0)
 
-    	if  dot==5 and not n_done:#(now>n_date and not n_done) and (((now-n_date).total_seconds()/3600) < 3):
+    	if  (now>n_date and not n_done) and (((now-n_date).total_seconds()/3600) < 3):
     	 		print()
     	 		start(2)
     	 		n_done=True
