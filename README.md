@@ -22,16 +22,20 @@ No need to worry about this anymore because **HelloGirls** is here to protect yo
 {
     "instagram_settings": {
         "username": "enter-your-username",
-        "password": "enter-your-password",
-        "text_message": "Hello Alwin"
+        "password": "enter-your-password"
     },
-
-    "script_settings": {
-        "license": "a",
-        "use_proxy": false,
-        "proxy_type": "https",
-        "threading": 10,
-        "message_amount": 1
+    "message_settings": {
+    	"morning": {
+    		"message": "Good Morning", <===Your morning greeting
+    		"hour": 8,                 <=== The hour and minute the greeting should go
+    		"minute": 0
+    	},
+    	"night": {
+    		"message": "Good Night", <=== Your night greeting
+    		"hour": 21,              <=== The hour and minute the greeting should go
+    		"minute": 0
+    	}
     }
 }
+
 ```
