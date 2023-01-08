@@ -79,7 +79,7 @@ def start(grt_no):
 	f= open("./count.txt",'r', encoding='utf-8')
 	count= int(f.read())
 	f= open("./count.txt",'w', encoding='utf-8')
-	f.write(str(count+1))
+	f.write(str(count+grt_no-1))
 	f.close()
 	start_msg(msg+' #'+str(count))
 
