@@ -109,13 +109,13 @@ $$ |  $$ |\$$$$$$$\ $$ |$$ |\$$$$$$  |      \$$$$$$  |$$ |$$ |      $$ |$$$$$$$ 
     	mid= datetime(now.year,now.month,now.day,23,45,0)
     	print(now-m_date)
     	if  now>n_date and not n_done:
-    	 	#start(1)
+    	 	start(2)
     	 	n_done=True
-    	 	print(2)
+    	 	#print(2)
     	 	
     	elif now>m_date and not m_done:
-    	 	#start(2)
-    	 	print(1)
+    	 	start(1)
+    	 	#print(1)
     	 	m_done=True
     	elif now>mid and (m_done or n_done):
     	    now=datetime.now()
