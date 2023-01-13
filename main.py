@@ -123,6 +123,7 @@ $$ |  $$ |\$$$$$$$\ $$ |$$ |\$$$$$$  |      \$$$$$$  |$$ |$$ |      $$ |$$$$$$$ 
     	 		print()
     	 		
     	elif now>mid and (m_done or n_done):
+    	    n_done=m_done=False
     	    now=datetime.now()
     	    m_date = datetime(now.year,now.month,now.day,config["message_settings"]["morning"]["hour"],config["message_settings"]["morning"]["minute"],0) + timedelta(days=1)
     	    n_date = datetime(now.year,now.month,now.day,config["message_settings"]["night"]["hour"],config["message_settings"]["night"]["minute"],0) + timedelta(days=1)
