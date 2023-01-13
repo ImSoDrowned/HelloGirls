@@ -23,6 +23,11 @@ No need to worry about this anymore because **HelloGirls** is here to protect yo
 - Schedule your messages to be sent at a given time 
 - Send greetings to up to 100 accounts
     - > Although sending messages to this many accounts at once can get your account banned
+# WARNING
+I made a duplicate account for testing this code but that account just got banned
+![suspended account](https://github.com/ImSoDrowned/HelloGirls/blob/main/Warning.jpg)
+So... use it with care 😅
+
 # Installation
 ` pip install -r requirements.txt `
 ```json
