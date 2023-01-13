@@ -58,7 +58,7 @@ ganeshpaniker
 namanbig
 chorian2024
 ```
-**DONOT LEAVE EMPTY LINES BETWEEN OR AFTER THE USERNAMES**
+**DO NOT LEAVE EMPTY LINES BETWEEN OR AFTER THE USERNAMES**
 
 ## Still Confused?
 **Contact me on [Instagram](https://www.instagram.com/imsodrowned6/)**
