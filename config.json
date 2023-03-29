@@ -1,0 +1,18 @@
+{
+    "instagram_settings": {
+        "username": "xxxxxxxx",
+        "password": "xxxxxxxx"
+    },
+    "message_settings": {
+    	"morning": {
+    		"message": "Good Morning",
+    		"hour": 8,
+    		"minute": 0
+    	},
+    	"night": {
+    		"message": "Good Night",
+    		"hour": 21,
+    		"minute": 0
+    	}
+    }
+}
